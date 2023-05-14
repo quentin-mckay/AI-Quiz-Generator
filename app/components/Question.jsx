@@ -96,7 +96,7 @@ const Question = ({ question, id, setNumSubmitted, setNumCorrect }) => {
 
             style = choice.isSelected
                 ? 'border-cyan-600/75 bg-cyan-600/20'
-                : 'border-gray-500 hover:bg-cyan-600/5'
+                : 'border-gray-500 hover:bg-cyan-600/10'
 
             let checkOrX = null
 
@@ -134,10 +134,10 @@ const Question = ({ question, id, setNumSubmitted, setNumCorrect }) => {
             return (
                 <div
                     key={index}
-                    className={`p-4 text-left border rounded cursor-pointer ${style} flex items-center justify-between`}
+                    className={`w-full p-4 text-left border rounded cursor-pointer ${style} flex items-center justify-between`}
                     onClick={() => handleChoiceSelect(index)}
                 >
-                    <pre>
+                    <pre className=' whitespace-pre-wrap'>
                         {/* <code>{choice.text}</code> */}
                         {/* <code className=' bg-opacity-0 '>{choice.text}</code> */}
                         <code
@@ -170,11 +170,11 @@ const Question = ({ question, id, setNumSubmitted, setNumCorrect }) => {
 
     return (
         <div className='max-w-3xl mx-auto'>
-            <h2 className='text-sm font-semibold text-gray-300'>
+            <h2 className='text-sm font-semibold text-gray-300/80'>
                 Question {id + 1}
             </h2>
             <div className='border border-gray-500/0 rounded'>
-                <div className='py-2 mt-2 text-2xl'>{query}</div>
+                <div className='py-2 mt-2 text-xl'>{query}</div>
                 <div className='grid gap-2 mt-4'>{renderChoices()}</div>
                 <div className='flex items-center justify-end gap-2 mt-2 itesm'>
                     {isSubmitted && (

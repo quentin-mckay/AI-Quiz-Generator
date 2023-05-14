@@ -3,7 +3,7 @@ export const testQuiz = [
         query: 'What is the correct way to declare a variable in JavaScript?',
         choices: [
             'var = myVariable',
-            'variable myVariable',
+            'variable myVariablevariable myVariablevariable myVariablevariable myVariablevariable myVariablevariable myVariablevariable myVariable',
             'var myVariable',
             'variable = myVariable',
         ],
