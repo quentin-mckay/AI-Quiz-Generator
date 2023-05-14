@@ -32,10 +32,10 @@ const trackNames = [
 const AudioPlayer = () => {
     const [audio, state, controls, ref] = useAudio({
         src: '/audio/funk.mp3',
-        autoPlay: false,
+        autoPlay: true,
     })
 
-    const [volumeLevel, setVolumeLevel] = useState(2)  // 0 is off, 3 is maximum
+    const [volumeLevel, setVolumeLevel] = useState(3)  // 0 is off, 3 is maximum
 
     const handleSpeakerClick = (e) => {
         switch ((volumeLevel + 1) % 4) {
@@ -57,7 +57,6 @@ const AudioPlayer = () => {
     const handleTrackSelect = (e) => {
         let trackName = e.target.value
         trackName = trackName.toLowerCase().replace(' ', '-')
-        // console.log(trackName)
         ref.current.src = `/audio/${trackName}.mp3`
         controls.play()
         // console.log(ref.current)
@@ -81,8 +80,11 @@ const AudioPlayer = () => {
     useEffect(() => {
         // console.log(state)
         // console.log(ref.current)
+
+        ref.current.src = `/audio/funk.mp3`
         controls.volume(volumeLevel)
-        // controls.play()
+        controls.pause()
+        controls.play()
     }, [])
 
     return (
