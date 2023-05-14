@@ -2,26 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    @apply bg-stone-800 text-white;
+}
+
+.bg-grid {
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 120px 24px 160px 24px;
+    pointer-events: none;
+}
+
+/* vignette */
+.bg-grid:before {
+    background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #2b2b2b 100%);
+    position: absolute;
+    content: '';
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+/* grid svg */
+.bg-grid:after {
+    content: '';
+    background-image: url('../public/grid.svg');
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.4;
+    /* filter: invert(1); */
+}
+
+.gradient {
+    height: fit-content;
+    z-index: 3;
+    width: 100%;
+    max-width: 640px;
+    background-image: radial-gradient(
+            at 27% 37%,
+            hsla(215, 98%, 61%, 1) 0px,
+            transparent 0%
+        ),
+        radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+        radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+        radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+        radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+        radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+        radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    filter: blur(100px) saturate(150%);
+    top: 80px;
+    opacity: 0.1;
+}
+
+
+
+.quiz-select {
+    @apply text-black cursor-pointer rounded
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: #6ee7b7d9;
+    transform-origin: 0%;
+    /* z-index: 20; */
+}
+
+.q-button {
+    @apply inline-block border-2 border-emerald-400 rounded text-emerald-400 text-center uppercase text-lg font-semibold mx-auto mt-5 px-6 py-2 hover:bg-emerald-500 hover:border-emerald-500 hover:text-white duration-75 active:bg-emerald-600;
+}
+
+.q {
+    @apply bg-gradient-to-r from-emerald-500 via-pink-400 to-blue-500 bg-clip-text text-transparent q-animate-gradient;
+}
+
+.q-animate-gradient {
+    background-size: 300% 300%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#audio-player button {
+    /* @apply border border-white px-2 py-1 rounded; */
 }
