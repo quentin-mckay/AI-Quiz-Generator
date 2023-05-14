@@ -98,13 +98,14 @@ const AudioPlayer = () => {
             <select
                 onChange={handleTrackSelect}
                 name='trackName'
+                defaultValue="Funk"
                 className='p-0 py-1 pl-2 text-[#6ee7b7] text-sm border border-[#6ee7b7]/50 rounded bg-transparent min-w-[110px] focus:outline-none focus:ring-0  focus:border-[#6ee7b7]'
             >
                 {trackNames.map((trackName, index) => (
                     <option
                         value={trackName}
                         className='text-black bg-transparent'
-                        selected={trackName === 'Funk'}
+                        // selected={trackName === 'Funk'}
                         // defaultValue={'Funk'}
                         key={index}
                     >

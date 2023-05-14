@@ -26,7 +26,7 @@ const QuizPage = () => {
     const numQuestions = Number(params.get('numQuestions'))
 
     const [quiz, setQuiz] = useState([]) // array of questions
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     const [numSubmitted, setNumSubmitted] = useState(0)
     const [numCorrect, setNumCorrect] = useState(0)
@@ -84,7 +84,7 @@ const QuizPage = () => {
                 console.log('done loading')
             }
         }
-        generateQuestions()
+        // generateQuestions()
     }, [])
 
 
