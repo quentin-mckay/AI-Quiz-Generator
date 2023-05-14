@@ -16,7 +16,7 @@ import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
 const EndScreen = () => {
-    const voices = window.speechSynthesis.getVoices()
+    // const voices = window.speechSynthesis.getVoices()
     // console.log(voices)
 
     const router = useRouter()
@@ -26,11 +26,11 @@ const EndScreen = () => {
 
     const [message, setMessage] = useState('')
 
-    const state = useSpeech(message, {
-        rate: 0.8,
-        pitch: 0.5,
-        voice: voices[1],
-    })
+    // const state = useSpeech(message, {
+    //     rate: 0.8,
+    //     pitch: 0.5,
+    //     voice: voices[1],
+    // })
 
     const { width, height } = useWindowSize()
 
