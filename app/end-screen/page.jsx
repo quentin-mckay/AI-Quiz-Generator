@@ -10,7 +10,7 @@ import { endMessages } from '../constants/endMessages'
 
 import { useSpeech } from 'react-use'
 
-import Voice from '../components/Speak'
+// import Voice from '../components/Speak'
 
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
