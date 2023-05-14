@@ -10,7 +10,7 @@ import {
     RxSpeakerLoud,
 } from 'react-icons/rx'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 const trackNames = [
     'Original',
@@ -34,6 +34,8 @@ const AudioPlayer = () => {
         src: '/audio/funk.mp3',
         autoPlay: true,
     })
+
+    const playButtonRef = useRef(null)
 
     const [volumeLevel, setVolumeLevel] = useState(3) // 0 is off, 3 is maximum
 
@@ -59,7 +61,7 @@ const AudioPlayer = () => {
         trackName = trackName.toLowerCase().replace(' ', '-')
         // console.log(trackName)
         ref.current.src = `/audio/${trackName}.mp3`
-        controls.play()
+        // controls.play()
         // console.log(ref.current)
     }
 
@@ -81,7 +83,9 @@ const AudioPlayer = () => {
     useEffect(() => {
         // console.log(state)
         // console.log(ref.current)
-        controls.play()
+        // controls.play()
+        // playButtonRef.current.click()
+        ref.current.src = `/audio/funk.mp3`
     }, [])
 
     return (
@@ -91,8 +95,8 @@ const AudioPlayer = () => {
             {/* <button onClick={handleSpeakerClick}> */}
 
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
-            {/* <button onClick={controls.pause}>Pause</button>
-            <button onClick={controls.play}>Play</button> */}
+            {/* <button onClick={controls.pause}>Pause</button> */}
+            <button onClick={controls.play} ref={playButtonRef}></button> 
 
             <select
                 onChange={handleTrackSelect}
