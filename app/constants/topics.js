@@ -40,7 +40,6 @@ export const topics = {
         'Promises',
         'Async/Await',
         'ES6+ features',
-        'Prototype inheritance',
         'Regular expressions',
         'Error handling',
         'Debugging techniques',

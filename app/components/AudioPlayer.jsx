@@ -10,6 +10,8 @@ import {
     RxSpeakerLoud,
 } from 'react-icons/rx'
 
+import { HiPlay, HiStop } from 'react-icons/hi2'
+
 import { useEffect, useState, useRef } from 'react'
 
 const trackNames = [
@@ -80,6 +82,15 @@ const AudioPlayer = () => {
         }
     }
 
+    const handlePlayButton = () => {
+        if (state.playing) {
+            controls.pause()
+            controls.seek(0)
+        } else {
+            controls.play()
+        }
+    }
+
     useEffect(() => {
         // console.log(state)
         // console.log(ref.current)
@@ -89,14 +100,20 @@ const AudioPlayer = () => {
     }, [])
 
     return (
-        <div id='audio-player' className='flex items-center gap-4 p-4'>
+        <div id='audio-player' className='flex items-center gap-2 p-4'>
             {audio}
 
             {/* <button onClick={handleSpeakerClick}> */}
 
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
             {/* <button onClick={controls.pause}>Pause</button> */}
-            <button onClick={controls.play} ref={playButtonRef}></button> 
+            <button
+                onClick={handlePlayButton}
+                ref={playButtonRef}
+                className='px-2 py-1 text-sm text-[#6ee7b7] border border-[#6ee7b7]/50 rounded bg-transparent '
+            >
+                {state.playing ? <HiStop size={20} /> : <HiPlay size={20} />}
+            </button>
 
             <select
                 onChange={handleTrackSelect}
