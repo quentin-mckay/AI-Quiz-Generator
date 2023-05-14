@@ -57,6 +57,7 @@ const AudioPlayer = () => {
     const handleTrackSelect = (e) => {
         let trackName = e.target.value
         trackName = trackName.toLowerCase().replace(' ', '-')
+        // console.log(trackName)
         ref.current.src = `/audio/${trackName}.mp3`
         controls.play()
         // console.log(ref.current)
@@ -77,21 +78,10 @@ const AudioPlayer = () => {
         }
     }
 
-    const startPlayer = () => {
-        ref.current.src = `/audio/funk.mp3`
-        // controls.volume(volumeLevel)
-        // controls.pause()
-        controls.play()
-        console.log('1 second later')
-    }
-
     useEffect(() => {
         // console.log(state)
         // console.log(ref.current)
-        const timer = setTimeout(() => {
-            // Call your function here
-            startPlayer()
-        }, 1000)
+        controls.play()
     }, [])
 
     return (

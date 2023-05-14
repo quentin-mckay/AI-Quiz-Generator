@@ -9,6 +9,8 @@ import Link from 'next/link'
 
 import AudioPlayer from './components/AudioPlayer'
 
+import { FiGithub } from "react-icons/fi";
+
 const HomePage = () => {
     // const [topicOptions, setTopicOptions] = useState(topics.python.beginner)
 
@@ -68,7 +70,7 @@ const HomePage = () => {
                                 <option value='css'>CSS</option>
                             </select>
                         </div>
-                        
+
                         <div className='flex flex-col'>
                             <label
                                 htmlFor='topic'
@@ -154,6 +156,16 @@ const HomePage = () => {
                     </div>
                 </form>
             </div>
+            
+                <a
+                    className='fixed bottom-0 flex items-center gap-2 pb-2 font-mono text-sm text-white/70 transition hover:text-emerald-300 sm:m-0'
+                    href='https://github.com/quentin-mckay/portfolio_next13'
+                >
+                    {/* <FiGithub size={16} className='translate-y-[0px]' /> */}
+                    <FiGithub size={16} />
+                    Built with Next.js / Tailwind / OpenAI
+                </a>
+
         </div>
     )
 }
