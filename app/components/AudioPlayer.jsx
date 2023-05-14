@@ -35,7 +35,7 @@ const AudioPlayer = () => {
         autoPlay: true,
     })
 
-    const [volumeLevel, setVolumeLevel] = useState(3)  // 0 is off, 3 is maximum
+    const [volumeLevel, setVolumeLevel] = useState(3) // 0 is off, 3 is maximum
 
     const handleSpeakerClick = (e) => {
         switch ((volumeLevel + 1) % 4) {
@@ -77,14 +77,21 @@ const AudioPlayer = () => {
         }
     }
 
+    const startPlayer = () => {
+        ref.current.src = `/audio/funk.mp3`
+        // controls.volume(volumeLevel)
+        // controls.pause()
+        controls.play()
+        console.log('1 second later')
+    }
+
     useEffect(() => {
         // console.log(state)
         // console.log(ref.current)
-
-        ref.current.src = `/audio/funk.mp3`
-        controls.volume(volumeLevel)
-        controls.pause()
-        controls.play()
+        const timer = setTimeout(() => {
+            // Call your function here
+            startPlayer()
+        }, 1000)
     }, [])
 
     return (
@@ -92,7 +99,7 @@ const AudioPlayer = () => {
             {audio}
 
             {/* <button onClick={handleSpeakerClick}> */}
-            
+
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
             {/* <button onClick={controls.pause}>Pause</button>
             <button onClick={controls.play}>Play</button> */}
@@ -100,7 +107,7 @@ const AudioPlayer = () => {
             <select
                 onChange={handleTrackSelect}
                 name='trackName'
-                defaultValue="Funk"
+                defaultValue='Funk'
                 className='p-0 py-1 pl-2 text-[#6ee7b7] text-sm border border-[#6ee7b7]/50 rounded bg-transparent min-w-[110px] focus:outline-none focus:ring-0  focus:border-[#6ee7b7]'
             >
                 {trackNames.map((trackName, index) => (
@@ -116,8 +123,10 @@ const AudioPlayer = () => {
                 ))}
             </select>
 
-
-            <button onClick={() => handleSpeakerClick()} style={{color: '#6ee7b7'}}>
+            <button
+                onClick={() => handleSpeakerClick()}
+                style={{ color: '#6ee7b7' }}
+            >
                 {/* {state.muted ? (
                     <HiOutlineSpeakerXMark size={30} />
                 ) : (
