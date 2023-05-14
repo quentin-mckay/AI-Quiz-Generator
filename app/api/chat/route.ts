@@ -1,7 +1,4 @@
-// const prompt = "Give me a multiple choice question about JavaScript programming. The question should be at an intermediate level. Return your response entirely in the form of a JSON object. The quiz question should include: the question, the choices, the answer number, and a brief explanation of why the answer is correct. The choices shouldn't include any identifier like A or 1. The JSON properties should be question, choices, answer, and explanation. Don't include anything other than the JSON."
-// let difficulty = 'advanced'
 
-// const prompt = `Give me 5 multiple choice questions about JavaScript programming. The questions should be at an ${difficulty} level. Return your response entirely in the form of a JSON object. The quiz questions should include: the question, the choices, the answer number, and a brief explanation of why the answer is correct. The choices shouldn't include any identifier like A or 1. The JSON properties should be query (which is the question), choices, answer, and explanation. Don't include anything other than the JSON.`
 
 
 if (!process.env.OPENAI_API_KEY) {
