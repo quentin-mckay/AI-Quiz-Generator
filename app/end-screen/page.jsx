@@ -63,12 +63,12 @@ const EndScreen = () => {
     // useSpeech(message, { rate: 0.8, pitch: 0.5, voice: voices[0] })
 
     return (
-        <div className='min-h-screen grid place-items-center'>
+        <div className='min-h-screen grid place-items-center '>
             {/* <Voice message={message} /> */}
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
 
 
-            {score >= 0.7 && <Confetti width={width} height={height} />}
+            {score >= 0.7 && <Confetti width={width} height={height} className='overflow-hidden'/>}
 
             <div className='max-w-3xl flex flex-col items-center z-10'>
                 <h2 className='text-7xl'>Score: {score * 100}%</h2>
