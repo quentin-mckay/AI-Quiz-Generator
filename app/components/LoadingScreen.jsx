@@ -1,6 +1,6 @@
 import Facts from './Facts'
 
-import { MutatingDots, Bars } from 'react-loader-spinner'
+import { Bars } from 'react-loader-spinner'
 
 const LoadingScreen = () => {
     return (

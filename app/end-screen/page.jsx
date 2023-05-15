@@ -52,7 +52,7 @@ const EndScreen = () => {
         }
 
         let randomMessage = pickRandom(endMessages[grade])
-        setMessage(randomMessage[grade])
+        setMessage(randomMessage)
 
 
         let randomGif = pickRandom(gifs[grade])
@@ -85,7 +85,7 @@ const EndScreen = () => {
 
                 <button
                     // className='border border-white px-6 py-3 rounded mt-12 text-lg'
-                    className='q-button'
+                    className='inline-block border-2 border-emerald-400 rounded text-emerald-400 text-center uppercase text-lg font-semibold mx-auto mt-8 px-6 py-2 hover:bg-emerald-400/40 hover:border-emerald-400 hover:text-white duration-75 active:bg-emerald-600'
                     onClick={handlePlayAgain}
                 >
                     Play again
