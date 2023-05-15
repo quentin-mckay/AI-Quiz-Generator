@@ -15,6 +15,8 @@ import { useSpeech } from 'react-use'
 import useWindowSize from 'react-use/lib/useWindowSize'
 import Confetti from 'react-confetti'
 
+import { gifs } from '../constants/gifs'
+
 const EndScreen = () => {
     // const voices = window.speechSynthesis.getVoices()
     // console.log(voices)
@@ -79,7 +81,7 @@ const EndScreen = () => {
                     className='q-button'
                     onClick={handlePlayAgain}
                 >
-                    Play again?
+                    Play again
                 </button>
             </div>
         </div>

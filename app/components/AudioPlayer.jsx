@@ -2,7 +2,6 @@
 
 import { useAudio } from 'react-use'
 
-// import { HiOutlineSpeakerWave, HiOutlineSpeakerXMark } from 'react-icons/hi2'
 import {
     RxSpeakerOff,
     RxSpeakerQuiet,
@@ -100,13 +99,12 @@ const AudioPlayer = () => {
     }, [])
 
     return (
-        <div id='audio-player' className='flex items-center gap-2 p-4'>
+        <div id='audio-player' className='flex items-center gap-1 p-4'>
             {audio}
-
-            {/* <button onClick={handleSpeakerClick}> */}
 
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
             {/* <button onClick={controls.pause}>Pause</button> */}
+
             <button
                 onClick={handlePlayButton}
                 ref={playButtonRef}
@@ -125,8 +123,6 @@ const AudioPlayer = () => {
                     <option
                         value={trackName}
                         className='text-black bg-transparent'
-                        // selected={trackName === 'Funk'}
-                        // defaultValue={'Funk'}
                         key={index}
                     >
                         {trackName}{' '}
@@ -137,14 +133,11 @@ const AudioPlayer = () => {
             <button
                 onClick={() => handleSpeakerClick()}
                 style={{ color: '#6ee7b7' }}
+                className='ml-2'
             >
-                {/* {state.muted ? (
-                    <HiOutlineSpeakerXMark size={30} />
-                ) : (
-                    <HiOutlineSpeakerWave size={30} />
-                )} */}
                 {speakerIcon()}
             </button>
+
             {/* <br />
             <button onClick={controls.mute}>Mute</button>
             <button onClick={controls.unmute}>Un-mute</button> */}

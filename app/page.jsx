@@ -39,7 +39,7 @@ const HomePage = () => {
 
     return (
         <div className='min-h-screen grid place-items-center'>
-            <div className='border rounded border-white/0'>
+            <div className='border rounded border-white/0 '>
                 <h1 className='text-center text-7xl font-bold bg-gradient-to-r from-emerald-500 via-pink-400 to-blue-500 bg-clip-text text-transparent q-animate-gradient'>
                     AI Quiz Generator
                 </h1>
@@ -47,10 +47,12 @@ const HomePage = () => {
                 {/* <form onSubmit={handleSubmit} className='mt-8 grid grid-cols-[2fr_3fr]'> */}
                 <form
                     onSubmit={handleSubmit}
-                    className='mt-8 flex flex-col gap-4 w-[80%] mx-auto'
+                    className='mt-14 flex flex-col gap-4 w-[80%] mx-auto'
                 >
                     {/* <div className='flex flex-col gap-6'> */}
-                    <div className='grid grid-cols-2 gap-6'>
+                    <div className='grid grid-cols-2 gap-x-8 gap-y-6'>
+
+                        {/* LANGUAGE */}
                         <div className='flex flex-col'>
                             <label
                                 htmlFor='language'
@@ -71,6 +73,7 @@ const HomePage = () => {
                             </select>
                         </div>
 
+                        {/* TOPIC */}
                         <div className='flex flex-col'>
                             <label
                                 htmlFor='topic'
@@ -88,13 +91,14 @@ const HomePage = () => {
                                     <option
                                         value={option}
                                         key={index}
-                                        className=''
                                     >
                                         {option}
                                     </option>
                                 ))}
                             </select>
                         </div>
+
+                        {/* DIFFICULTY */}
                         <div className='flex flex-col'>
                             <label
                                 htmlFor='difficult'
@@ -115,6 +119,8 @@ const HomePage = () => {
                                 <option value='advanced'>Advanced</option>
                             </select>
                         </div>
+
+                        {/* NUMBER OF QUESTIONS */}
                         <div className='flex flex-col'>
                             <label
                                 htmlFor='numQuestions'
@@ -138,7 +144,7 @@ const HomePage = () => {
                         </div>
                     </div>
 
-                    <div className='mx-auto'>
+                    <div className='mx-auto mt-8'>
                         <Link
                             className='q-button'
                             href={{

@@ -110,3 +110,7 @@ body {
 #audio-player button {
     /* @apply border border-white px-2 py-1 rounded; */
 }
+
+option {
+    @apply text-sm
+}
