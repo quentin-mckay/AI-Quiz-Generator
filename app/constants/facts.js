@@ -1,3 +1,5 @@
+import exp from 'constants'
+
 export const facts = [
     'The first website ever created is still online and can be visited at its original URL: info.cern.ch/hypertext/WWW/TheProject.html',
     'The average lifespan of a web page is only about 100 days.',
@@ -19,14 +21,38 @@ export const facts = [
     'The first website to use a database to store and retrieve information was created in 1993.',
     'The first website to use a search engine was created in 1993 and was called Aliweb.',
     "The first e-commerce transaction was made on August 11, 1994, when a man sold a CD of Sting's Ten Summoner's Tales to a friend through his website, NetMarket.",
-	"Python was named after the British comedy group Monty Python, not the snake.",
+    'Python was named after the British comedy group Monty Python, not the snake.',
     "The Zen of Python is a collection of guiding principles for writing computer programs in Python. It is included as an Easter egg in the Python interpreter and can be accessed by typing 'import this'.",
-    "Guido van Rossum created Python in the late 1980s while working at the National Research Institute for Mathematics and Computer Science in the Netherlands.",
-    "Python is one of the official programming languages used at Google.",
+    'Guido van Rossum created Python in the late 1980s while working at the National Research Institute for Mathematics and Computer Science in the Netherlands.',
+    'Python is one of the official programming languages used at Google.',
     "The popular game Minecraft's Pi edition is programmed in Python.",
-    "NASA has used Python for scientific programming tasks, including analyzing data from the Mars rovers.",
-    "Python has been used to create popular websites such as Instagram, YouTube, and Reddit.",
-    "Python is the fastest-growing programming language and has been ranked the most popular language in numerous surveys.",
-    "The first version of Python was released on February 20, 1991.",
-    "Python's popularity has inspired the creation of numerous Python-themed conferences, such as PyCon and PyData."
+    'NASA has used Python for scientific programming tasks, including analyzing data from the Mars rovers.',
+    'Python has been used to create popular websites such as Instagram, YouTube, and Reddit.',
+    'Python is the fastest-growing programming language and has been ranked the most popular language in numerous surveys.',
+    'The first version of Python was released on February 20, 1991.',
+    "Python's popularity has inspired the creation of numerous Python-themed conferences, such as PyCon and PyData.",
+    "The first computer programmer was a woman named Ada Lovelace, who wrote the first algorithm in the 1840s.",
+    "The original name of the JavaScript programming language was 'Mocha'.",
+    "The QWERTY keyboard layout was designed to prevent typewriter keys from jamming, but it is not the most efficient layout for typing.",
+    "The word 'byte' is a combination of 'by eight' and is a unit of digital information storage.",
+    "The first hard disk drive created in 1956 stored only 5 megabytes of data and cost about $50,000.",
+    "The term 'spam' to refer to unwanted emails originated from a Monty Python sketch.",
+    "The first ever domain name registered was 'symbolics.com' in 1985.",
+    "The most starred project on GitHub is the freeCodeCamp curriculum, with over 300k stars.",
+]
+
+export const jokes = [
+    'Why do programmers prefer dark mode? Because light attracts bugs.',
+    'Why did the JavaScript developer go broke? Because he lost his TypeScript.',
+    'Why was the math book sad? Because it had too many problems.',
+    "Why do programmers prefer wearing glasses? Because they can't C#.",
+    "Why don't programmers like nature? It has too many bugs.",
+    'Why do programmers hate nature photographers? They always focus on the bugs.',
+    "Why was the JavaScript developer sad? Because he didn't Node how to Express himself.",
+    "Why do Java developers wear glasses? Because they don't C#!",
+    'Why was the computer cold? It left its Windows open!',
+    "Why did the programmer quit his job? Because he didn't get arrays.",
+    'Why did the developer go broke? Because he lost his cache.',
+    "Why did the programmer go broke? Because he couldn't find an Open Source of income.",
+    'Why do C# and Java developers keep breaking their keyboards? Because they use a strongly typed language.',
 ]

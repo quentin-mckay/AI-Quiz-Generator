@@ -27,6 +27,7 @@ const EndScreen = () => {
     const score = Number(params.get('score'))
 
     const [message, setMessage] = useState('')
+    const [gif, setGif] = useState('')
 
     // const state = useSpeech(message, {
     //     rate: 0.8,
@@ -41,15 +42,21 @@ const EndScreen = () => {
     }
 
     useEffect(() => {
-        let messageList = []
+        let grade = ''
         if (score === 1) {
-            messageList = endMessages.perfect
-        } else if (score >= 0.8) {
-            messageList = endMessages.good
+            grade = 'perfect'
+        } else if (score >= 0.7) {
+            grade = 'good'
         } else {
-            messageList = endMessages.bad
+            grade = 'bad'
         }
-        setMessage(pickRandom(messageList))
+
+        let randomMessage = pickRandom(endMessages[grade])
+        setMessage(randomMessage[grade])
+
+
+        let randomGif = pickRandom(gifs[grade])
+        setGif(randomGif)
     }, [])
 
     // useSpeech('Hello world!', { rate: 0.8, pitch: 0.5, voice: voices[0] })
@@ -61,20 +68,20 @@ const EndScreen = () => {
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
 
 
-            {score >= 0.8 && <Confetti width={width} height={height} />}
+            {score >= 0.7 && <Confetti width={width} height={height} />}
 
             <div className='max-w-3xl flex flex-col items-center z-10'>
                 <h2 className='text-7xl'>Score: {score * 100}%</h2>
                 <iframe
-                    src='https://giphy.com/embed/MhHXeM4SpKrpC'
+                    src={gif}
                     width='480'
                     height='269'
                     // frameBorder='0'
-                    className='giphy-embed mt-10'
+                    className='giphy-embed mt-16'
                     allowFullScreen
                 ></iframe>
 
-                <p className='text-3xl mt-12 mb-5 text-center'>{message}</p>
+                <p className='text-3xl mt-12 text-center'>{message}</p>
 
                 <button
                     // className='border border-white px-6 py-3 rounded mt-12 text-lg'
@@ -88,3 +95,5 @@ const EndScreen = () => {
     )
 }
 export default EndScreen
+
+

@@ -65,10 +65,8 @@ body {
     opacity: 0.1;
 }
 
-
-
 .quiz-select {
-    @apply text-black cursor-pointer rounded
+    @apply text-black cursor-pointer rounded;
 }
 
 .progress-bar {
@@ -83,7 +81,7 @@ body {
 }
 
 .q-button {
-    @apply inline-block border-2 border-emerald-400 rounded text-emerald-400 text-center uppercase text-lg font-semibold mx-auto mt-5 px-6 py-2 hover:bg-emerald-500 hover:border-emerald-500 hover:text-white duration-75 active:bg-emerald-600;
+    @apply inline-block border-2 border-emerald-400 rounded text-emerald-400 text-center uppercase text-lg font-semibold mx-auto mt-5 px-6 py-2 hover:bg-emerald-400/40 hover:border-emerald-400 hover:text-white duration-75 active:bg-emerald-600;
 }
 
 .q {
@@ -112,5 +110,20 @@ body {
 }
 
 option {
-    @apply text-sm
+    @apply text-sm;
+}
+
+.slide-background {
+    background-size: 200%;
+    /* width: 400%; */
+    animation: slideBackground 1s linear infinite;
+}
+
+@keyframes slideBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
 }

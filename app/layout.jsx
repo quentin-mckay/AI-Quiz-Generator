@@ -20,6 +20,10 @@ import Script from 'next/script'
 export default function RootLayout({ children }) {
     return (
         <html lang='en'>
+            <head>
+                <title>AI Quiz Generator</title>
+                <link rel="icon" href="my-favicon-32x32.png" type="image/x-icon"></link>
+            </head>
             <body className={`${poppins.className} relative`}>
                 <div className='bg-grid'>
                     <div className='gradient' />

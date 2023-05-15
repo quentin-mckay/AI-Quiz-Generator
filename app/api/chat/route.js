@@ -1,5 +1,4 @@
-
-
+// interacting with API via http
 
 if (!process.env.OPENAI_API_KEY) {
     throw new Error('Missing OpenAI API Key')

@@ -40,7 +40,7 @@ const HomePage = () => {
     return (
         <div className='min-h-screen grid place-items-center'>
             <div className='border rounded border-white/0 '>
-                <h1 className='text-center text-7xl font-bold bg-gradient-to-r from-emerald-500 via-pink-400 to-blue-500 bg-clip-text text-transparent q-animate-gradient'>
+                <h1 className='text-center text-5xl md:text-7xl font-bold bg-gradient-to-r from-emerald-500 via-pink-400 to-blue-500 bg-clip-text text-transparent q-animate-gradient'>
                     AI Quiz Generator
                 </h1>
 
