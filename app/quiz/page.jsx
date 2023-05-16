@@ -63,20 +63,21 @@ const QuizPage = () => {
                 console.log(response)
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch data')
+                    throw new Error('Failed to fetch data', response.statusText)
                 }
 
-                const text = await response.text()
-                // console.log(text)
+                const answer = await response.json()
+                setQuiz(answer.questions)
+
+
+                // const text = await response.text()
+                // const quiz = JSON.parse(text).questions
                 // setQuiz(quiz)
-                const quiz = JSON.parse(text).questions
-                // console.log(quiz)
-                setQuiz(quiz)
 
                 // console.log(quiz)
                 // console.log(JSON.parse(quiz))
             } catch (err) {
-                console.log('error', err)
+                console.log('Quiz Page:', err)
             } finally {
                 setIsLoading(false)
                 console.log('done loading')

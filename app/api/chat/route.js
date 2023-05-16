@@ -4,6 +4,10 @@ if (!process.env.OPENAI_API_KEY) {
     throw new Error('Missing OpenAI API Key')
 }
 
+export const config = {
+    runtime: 'edge',
+}
+
 export async function POST(request) {
     const { language, difficulty, topic, numQuestions } = await request.json()
 
@@ -40,8 +44,8 @@ export async function POST(request) {
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
                     messages: [{ role: 'user', content: prompt }],
-                    temperature: 0.7,
-                    top_p: 1,
+                    temperature: 1,
+                    // top_p: 1,
                     frequency_penalty: 0,
                     presence_penalty: 0,
                     max_tokens: 2048,
@@ -58,7 +62,7 @@ export async function POST(request) {
         // console.log(json)
 
         // TODO: understand this
-        return new Response(json.choices[0].message.content)
+        return new Response(json.choices[0].message.content, { status: 200 })
     } catch (err) {
         return new Response('Request cannot be processed!', {
             status: 400,
