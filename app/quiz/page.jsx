@@ -42,8 +42,6 @@ const QuizPage = () => {
 
     useEffect(() => {
 
-        hljs.highlightAll()
-
         const generateQuestions = async () => {
             console.log('loading...')
             setIsLoading(true)
@@ -85,9 +83,11 @@ const QuizPage = () => {
             }
         }
         generateQuestions()
+    }, [])
+
+    useEffect(() => {
+        hljs.highlightAll()
     }, [quiz])
-
-
 
     useEffect(() => {
         // set progress 0 - 1
