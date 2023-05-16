@@ -11,9 +11,7 @@ import Question from '../components/Question'
 
 import { testQuiz } from '../constants/testQuiz'
 
-
-
-import "highlight.js/styles/atom-one-dark.css";
+import 'highlight.js/styles/atom-one-dark.css'
 import hljs from 'highlight.js'
 
 const QuizPage = () => {
@@ -33,15 +31,15 @@ const QuizPage = () => {
 
     const [progress, setProgress] = useState(0)
 
+    const [stuff, setStuff] = useState('')
+
     const scaleX = useSpring(progress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.002,
     })
 
-
     useEffect(() => {
-
         const generateQuestions = async () => {
             console.log('loading...')
             setIsLoading(true)
@@ -56,20 +54,44 @@ const QuizPage = () => {
                         language,
                         difficulty,
                         topic,
-                        numQuestions
+                        numQuestions,
                     }),
                 })
 
-                console.log(response)
+                console.log(response) // Readable Stream
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch data', response.statusText)
                 }
 
-                const answer = await response.json()
-                setQuiz(answer.questions)
+                const data = response.body
+                console.log('data', data)
+                if (!data) {
+                    console.log('no data')
+                    return
+                }
 
+                const reader = data.getReader()
+                const decoder = new TextDecoder()
 
+                let done = false
+
+                while (!done) {
+                    console.log('not done')
+
+                    const { value, done: doneReading } = await reader.read()
+                    
+                    console.log('doneReading', doneReading)
+                    
+                    done = doneReading
+                    const chunkValue = decoder.decode(value)
+                    setStuff((prev) => prev + chunkValue)
+                }
+                // working
+                // const answer = await response.json()
+                // setQuiz(answer.questions)
+
+                // old way (working)
                 // const text = await response.text()
                 // const quiz = JSON.parse(text).questions
                 // setQuiz(quiz)
@@ -112,6 +134,7 @@ const QuizPage = () => {
                 <div>Submitted: {numSubmitted}</div>
                 <div>Correct: {numCorrect}</div>
             </div> */}
+            
 
             <motion.div className='progress-bar' style={{ scaleX }} />
 
@@ -119,7 +142,10 @@ const QuizPage = () => {
                 Quiz Page
             </h1> */}
             {isLoading ? (
+                <>
+                {stuff}
                 <LoadingScreen color='#F00' width='100' />
+                </>
             ) : (
                 <div className='pt-12'>
                     {quiz?.map((question, index) => (

@@ -1,0 +1,9 @@
+{
+    "id": "chatcmpl-7Gi6hUhokDjOZ3aK8Jd3Bw9B53DCF",
+    "object": "chat.completion.chunk",
+    "created": 1684217151,
+    "model": "gpt-3.5-turbo-0301",
+    "choices": [
+        { "delta": { "content": " scope" }, "index": 0, "finish_reason": null }
+    ]
+}
