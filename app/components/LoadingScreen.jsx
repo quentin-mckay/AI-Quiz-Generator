@@ -5,9 +5,9 @@ import { Bars } from 'react-loader-spinner'
 const LoadingScreen = ({ responseStream }) => {
     return (
         <>
-            <div className=' text-white/10 text-xs'>
+            <div className=' text-white/10 text-xs text-justify'>
                 <div className='fixed'>{responseStream}</div>
-                <div className='fixed bottom-0 rotate-180'>
+                <div className='fixed bottom-0 rotate-180 left-0'>
                     {responseStream}
                 </div>
                 <div className='fixed bottom-0 right-0 reverse-text'>
