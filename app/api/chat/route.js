@@ -4,9 +4,7 @@ if (!process.env.OPENAI_API_KEY) {
     throw new Error('Missing OpenAI API Key')
 }
 
-export const config = {
-    runtime: 'edge',
-}
+export const runtime = 'edge'
 
 export async function POST(request) {
     const { language, difficulty, topic, numQuestions } = await request.json()
