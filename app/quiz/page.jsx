@@ -49,7 +49,7 @@ const QuizPage = () => {
             setIsLoading(true)
 
             try {
-                const response = await fetch('/api/chat', {
+                const response = await fetch('/api/chat-node', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
