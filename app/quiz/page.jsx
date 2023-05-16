@@ -44,6 +44,8 @@ const QuizPage = () => {
             console.log('loading...')
             setIsLoading(true)
 
+            let responseText = ''
+
             try {
                 const response = await fetch('/api/chat', {
                     method: 'POST',
@@ -67,7 +69,7 @@ const QuizPage = () => {
                 const data = response.body
                 console.log('data', data)
                 if (!data) {
-                    console.log('no data')
+                    // console.log('no data')
                     return
                 }
 
@@ -77,19 +79,30 @@ const QuizPage = () => {
                 let done = false
 
                 while (!done) {
-                    console.log('not done')
+                    // console.log('not done')
 
                     const { value, done: doneReading } = await reader.read()
                     
-                    console.log('doneReading', doneReading)
+                    // console.log('doneReading', doneReading)
                     
                     done = doneReading
                     const chunkValue = decoder.decode(value)
+
+                    responseText += chunkValue
+
                     setStuff((prev) => prev + chunkValue)
                 }
                 // working
                 // const answer = await response.json()
                 // setQuiz(answer.questions)
+
+                console.log('responseText', responseText)
+
+                let cleanedResponse = responseText.replace(/\n/g, '')
+
+                let jsonResponse = JSON.parse(cleanedResponse)
+
+                setQuiz(jsonResponse.questions)
 
                 // old way (working)
                 // const text = await response.text()
@@ -148,6 +161,8 @@ const QuizPage = () => {
                 </>
             ) : (
                 <div className='pt-12'>
+                    <button onClick={() => console.log(JSON.parse(stuff.replace(/\n/g, ''))) }>Show stuff</button>
+                    <button onClick={() => console.log('asdf') }>Show asdf</button>
                     {quiz?.map((question, index) => (
                         // <div>{question.query}</div>
                         <div className='mb-12' key={index}>
