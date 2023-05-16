@@ -38,7 +38,7 @@ const AudioPlayer = () => {
 
     const playButtonRef = useRef(null)
 
-    const [volumeLevel, setVolumeLevel] = useState(3) // 0 is off, 3 is maximum
+    const [volumeLevel, setVolumeLevel] = useState(0) // 0 is off, 3 is maximum
 
     const handleSpeakerClick = (e) => {
         switch ((volumeLevel + 1) % 4) {

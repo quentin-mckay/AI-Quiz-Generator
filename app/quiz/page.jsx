@@ -31,7 +31,7 @@ const QuizPage = () => {
 
     const [progress, setProgress] = useState(0)
 
-    const [stuff, setStuff] = useState('')
+    const [responseStream, setResponseStream] = useState('')
 
     const scaleX = useSpring(progress, {
         stiffness: 100,
@@ -82,15 +82,15 @@ const QuizPage = () => {
                     // console.log('not done')
 
                     const { value, done: doneReading } = await reader.read()
-                    
+
                     // console.log('doneReading', doneReading)
-                    
+
                     done = doneReading
                     const chunkValue = decoder.decode(value)
 
                     responseText += chunkValue
 
-                    setStuff((prev) => prev + chunkValue)
+                    setResponseStream((prev) => prev + chunkValue)
                 }
                 // working
                 // const answer = await response.json()
@@ -147,7 +147,6 @@ const QuizPage = () => {
                 <div>Submitted: {numSubmitted}</div>
                 <div>Correct: {numCorrect}</div>
             </div> */}
-            
 
             <motion.div className='progress-bar' style={{ scaleX }} />
 
@@ -156,13 +155,8 @@ const QuizPage = () => {
             </h1> */}
             {isLoading ? (
                 <>
-                <div className=' text-white/5 text-xs'>
-                    <div className='fixed'>{stuff}</div>
-                    <div className='fixed bottom-0 rotate-180'>{stuff}</div>
-                    <div className='fixed bottom-0 right-0 reverse-text'>{stuff}</div>
-                    <div className='fixed bottom-0 left-0 reverse-text rotate-180'>{stuff}</div>
-                </div>
-                <LoadingScreen color='#F00' width='100' />
+                    
+                    <LoadingScreen responseStream={responseStream} />
                 </>
             ) : (
                 <div className='pt-12'>
