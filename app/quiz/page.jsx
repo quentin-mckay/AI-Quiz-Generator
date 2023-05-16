@@ -60,14 +60,14 @@ const QuizPage = () => {
                     }),
                 })
 
-                console.log(response) // Readable Stream
+                // console.log(response) // Readable Stream
 
                 if (!response.ok) {
                     throw new Error('Failed to fetch data', response.statusText)
                 }
 
                 const data = response.body
-                console.log('data', data)
+                // console.log('data', data)
                 if (!data) {
                     // console.log('no data')
                     return
@@ -96,7 +96,7 @@ const QuizPage = () => {
                 // const answer = await response.json()
                 // setQuiz(answer.questions)
 
-                console.log('responseText', responseText)
+                // console.log('responseText', responseText)
 
                 let cleanedResponse = responseText.replace(/\n/g, '')
 
@@ -156,13 +156,18 @@ const QuizPage = () => {
             </h1> */}
             {isLoading ? (
                 <>
-                {stuff}
+                <div className=' text-white/5 text-xs'>
+                    <div className='fixed'>{stuff}</div>
+                    <div className='fixed bottom-0 rotate-180'>{stuff}</div>
+                    <div className='fixed bottom-0 right-0 reverse-text'>{stuff}</div>
+                    <div className='fixed bottom-0 left-0 reverse-text rotate-180'>{stuff}</div>
+                </div>
                 <LoadingScreen color='#F00' width='100' />
                 </>
             ) : (
                 <div className='pt-12'>
-                    <button onClick={() => console.log(JSON.parse(stuff.replace(/\n/g, ''))) }>Show stuff</button>
-                    <button onClick={() => console.log('asdf') }>Show asdf</button>
+                    {/* <button onClick={() => console.log(JSON.parse(stuff.replace(/\n/g, ''))) }>Show stuff</button>
+                    <button onClick={() => console.log('asdf') }>Show asdf</button> */}
                     {quiz?.map((question, index) => (
                         // <div>{question.query}</div>
                         <div className='mb-12' key={index}>

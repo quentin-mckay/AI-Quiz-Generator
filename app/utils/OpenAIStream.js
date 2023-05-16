@@ -29,7 +29,7 @@ export async function OpenAIStream(payload) {
                         return
                     }
                     try {
-						console.log(data)
+						// console.log(data) // log every single token
 
                         const json = JSON.parse(data)
                         const text = json.choices[0].delta.content
