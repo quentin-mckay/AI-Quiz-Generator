@@ -4,7 +4,7 @@ Uses OpenAI's ChatGPT API to generate multiple choice quiz with user defined lan
 
 Features a loading screen with random facts to give the user something to do while the data is retrieved from the API and an ending screen with score-determined gifs and sarcastic messages.
 
-[View Live App](https://ai-quiz-generator-xi.vercel.app/)
+[View Live App](https://ai-quiz-generator-next.vercel.app/)
 
 ![home page](./docs/images/home-page.jpg)
 
