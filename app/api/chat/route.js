@@ -14,14 +14,15 @@ export async function POST(request) {
     console.log(language, difficulty, topic, numQuestions)
 
     let firstSentence = ''
-    if (language === 'JavaScript' || language === 'Python') {
-        if (topic === 'Random') {
+    if (language === 'javascript' || language === 'python') {
+        if (topic === 'random') {
             firstSentence = `Give me ${numQuestions} multiple choice questions about a random topic in the ${language} programming language.`
         } else {
             firstSentence = `Give me ${numQuestions} multiple choice questions about ${topic} in the ${language} programming language.`
         }
     } else {
-        if (topic === 'Random') {
+        if (topic === 'random') {
+            console.log('got random');
             firstSentence = `Give me ${numQuestions} multiple choice questions about a random topic in ${language}.`
         } else {
             firstSentence = `Give me ${numQuestions} multiple choice questions about ${topic} in ${language}.`

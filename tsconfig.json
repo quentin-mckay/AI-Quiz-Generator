@@ -28,8 +28,7 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "app/api/chat/route.js"
+    "**/*.tsx"
   ],
   "exclude": [
     "node_modules"
