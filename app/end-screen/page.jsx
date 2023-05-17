@@ -68,7 +68,7 @@ const EndScreen = () => {
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
 
 
-            {score >= 0.7 && <Confetti width={width} height={height} className='overflow-hidden'/>}
+            {score >= 0.8 && <Confetti width={width} height={height} className='overflow-hidden'/>}
 
             <div className='max-w-3xl flex flex-col items-center z-10'>
                 <h2 className='text-7xl'>Score: {score * 100}%</h2>
