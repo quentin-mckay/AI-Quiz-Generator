@@ -92,30 +92,26 @@ const QuizPage = () => {
 
                     setResponseStream((prev) => prev + chunkValue)
                 }
-                // working
-                // const answer = await response.json()
-                // setQuiz(answer.questions)
 
-                // console.log('responseText', responseText)
-
-                let cleanedResponse = responseText.replace(/\n/g, '')
-
-                let jsonResponse = JSON.parse(cleanedResponse)
-
-                setQuiz(jsonResponse.questions)
-
-                // old way (working)
+                // first way (working)
                 // const text = await response.text()
                 // const quiz = JSON.parse(text).questions
                 // setQuiz(quiz)
 
-                // console.log(quiz)
-                // console.log(JSON.parse(quiz))
+                // second way (working)
+                // const answer = await response.json()
+                // setQuiz(answer.questions)
+
+                // streaming way
+                let cleanedResponse = responseText.replace(/\n/g, '')
+                let jsonResponse = JSON.parse(cleanedResponse)
+                setQuiz(jsonResponse.questions)
+
             } catch (err) {
                 console.log('Quiz Page:', err)
             } finally {
                 setIsLoading(false)
-                console.log('done loading')
+                // console.log('done loading')
             }
         }
         generateQuestions()
@@ -155,7 +151,6 @@ const QuizPage = () => {
             </h1> */}
             {isLoading ? (
                 <>
-                    
                     <LoadingScreen responseStream={responseStream} />
                 </>
             ) : (

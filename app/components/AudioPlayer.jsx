@@ -33,10 +33,10 @@ const trackNames = [
 const AudioPlayer = () => {
     const [audio, state, controls, ref] = useAudio({
         src: '/audio/funk.mp3',
-        autoPlay: true,
+        autoPlay: true, // very inconsistent. not sure why
     })
 
-    const playButtonRef = useRef(null)
+    // const playButtonRef = useRef(null)
 
     const [volumeLevel, setVolumeLevel] = useState(3) // 0 is off, 3 is maximum
 
@@ -103,11 +103,12 @@ const AudioPlayer = () => {
             {audio}
 
             {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+
             {/* <button onClick={controls.pause}>Pause</button> */}
 
             <button
                 onClick={handlePlayButton}
-                ref={playButtonRef}
+                // ref={playButtonRef}
                 className='px-2 py-1 text-sm text-[#6ee7b7] border border-[#6ee7b7]/50 rounded bg-transparent '
             >
                 {state.playing ? <HiStop size={20} /> : <HiPlay size={20} />}

@@ -1,3 +1,4 @@
+// not used in final version
 // same as /api/chat route but using the openai Node library
 
 import { Configuration, OpenAIApi } from 'openai'

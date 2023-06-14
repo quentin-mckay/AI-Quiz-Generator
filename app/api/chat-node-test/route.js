@@ -1,3 +1,4 @@
+// not used in final version
 // single prompt test { prompt: "What is JavaScript?"}
 
 import { Configuration, OpenAIApi } from 'openai'
